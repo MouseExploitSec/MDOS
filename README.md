@@ -47,4 +47,5 @@ A minimalistic CLI-based interface makes it easy for users to operate.
 
 [@mousexeploitsec](https://www.instagram.com/mousexeploitsec/)
 
-Project Link: https://github.com/msxsec1337/WPGuard
+Project Link: 
+https://github.com/MouseExploitSec/MDOS
