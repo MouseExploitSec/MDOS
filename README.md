@@ -34,6 +34,7 @@ python mdos.py https://example.com -t 20 -r 50
 ```
 
 ## List of Features Already Added
+```bash
 [+] HTTP Flood (DDoS): Sends a large number of HTTP requests to the target to overwhelm the server.
 [+] Randomized User-Agent: Each request uses a different User-Agent to mimic traffic from various devices.
 [+] Dynamic Path Generation: Generates random paths for each request to make detection harder.
@@ -47,7 +48,7 @@ python mdos.py https://example.com -t 20 -r 50
 [+] Logging System: Logs all attack activities into a file (`http_flood.log`) for further analysis.
 [+] Colorful Output: Uses the `colorama` library to display colored output in the terminal.
 [+] Argument Parsing: Uses `argparse` to accept command-line inputs like target URLs, thread count, and request rate.
-
+```
 ## Contact
 
 [@mousexeploitsec](https://www.instagram.com/mousexeploitsec/)
