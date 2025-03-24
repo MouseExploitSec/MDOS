@@ -19,7 +19,7 @@ python mdos.py -h
 python3 mdos.py https://example.com -t 20 -r 50
 ```
 
-## Installation on Linux 
+## Installation on Termux
 
 Install Python 3
 
