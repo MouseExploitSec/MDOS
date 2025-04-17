@@ -181,7 +181,7 @@ if __name__ == "__main__":
 |  \/  ||   \ / _ \/ __|  
 | |\/| || |) | (_) \__ \  
 |_|  |_||___/ \___/|___/  
->> MDOS+ - MouseExploitSec 
+>> MDOS - MouseExploitSec 
 """)
 
     parser = argparse.ArgumentParser(description="Advanced HTTP Flood Tool with Proxy and Header Support")
