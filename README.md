@@ -34,21 +34,93 @@ python mdos.py https://example.com -t 20 -r 50
 ```
 
 ## List of Features Already Added
+
+
+---
+
+## [+] All Fitur  & Penjelasan
+
+[+] Multi-target Support
+→ Tool ini dapat menyerang beberapa URL target sekaligus.  
+→ Contoh: kamu bisa memasukkan 3 URL dan tool akan membagi load ke semua.
+
+[+] Multithreaded Execution 
+→ Menggunakan `ThreadPoolExecutor` untuk menjalankan banyak thread paralel.  
+→ Semakin banyak thread, semakin besar tekanan ke target.  
+→ Parameter: `--threads`
+
+[+] Request Rate Control (RPS)  
+→ Atur kecepatan pengiriman request per detik.  
+→ Misalnya `--rate 100` akan mencoba mengirim 100 request per detik.  
+→ Berguna untuk menghindari rate-limiter atau menyesuaikan kapasitas.
+
+[+] Proxy Support 
+→ Dukung proxy `http` dan `socks5`.  
+→ Proxy dibaca dari file `proxies.txt`.  
+→ Sistem otomatis akan memutar proxy dan menghindari yang gagal.  
+→ Parameter: `--proxy`, `--proxy-type socks5`
+
+[+] Custom Headers Support
+→ Header tambahan bisa dimasukkan lewat file `custom_headers.txt`.  
+→ Contoh penggunaan: tambahkan `Authorization`, `X-API-Key`, dll.  
+→ Cocok untuk menyerang endpoint yang membutuhkan header tertentu.
+
+[+] Randomization Engine  
+→ Randomisasi untuk membuat setiap request terlihat unik:  
+   - `User-Agent` acak dari daftar browser umum  
+   - IP spoofing melalui `X-Forwarded-For`  
+   - `Referer` acak (misalnya dari Google)  
+   - Path acak (`/`, `/login`, `/products`, dll)  
+   - Metode HTTP acak: `GET`, `POST`, `PUT`, `DELETE`  
+   - Payload acak (berisi username, password, email, timestamp)
+
+[+] Retry Mechanism  
+→ Jika sebuah request gagal (timeout atau error), tool akan mencoba ulang hingga `n` kali.  
+→ Parameter: `--retries`
+
+[+] SSL Verification Toggle  
+→ Verifikasi SSL bisa dinonaktifkan (berguna untuk bypass atau jika target pakai self-signed cert).  
+→ Parameter: `--no-ssl`
+
+[+] Dry Run Mode 
+→ Simulasikan request tanpa benar-benar mengirim ke target.  
+→ Menampilkan metode, URL, dan header yang akan digunakan.  
+→ Parameter: `--dry-run`
+
+[+] Timeout Configuration
+→ Atur waktu tunggu maksimal untuk tiap request (default: 10 detik).  
+→ Parameter: `--timeout`
+
+[+] Limit Request & Duration  
+→ Tool bisa berhenti otomatis jika:  
+   - Mencapai jumlah request tertentu (`--max-requests`)  
+   - Melewati durasi waktu tertentu (`--duration` dalam detik)  
+→ Cocok untuk benchmark atau serangan terbatas.
+
+[+] Quiet Mode (Silent)  
+→ Menonaktifkan semua output yang tidak penting.  
+→ Hanya info penting dan error yang akan ditampilkan.  
+→ Parameter: `--quiet`
+
+[+] Output Hasil (Export)  
+→ Setelah selesai, tool menyimpan ringkasan hasil:  
+   - File `results.json`: format JSON  
+   - File `results.csv`: format spreadsheet  
+→ Data: total request, success, fail
+
+[+] Logging System
+→ Semua aktivitas juga dicatat ke file `http_flood.log`.  
+→ Berguna untuk audit, debugging, atau analisis pasca serangan.
+
+---
+
+## Cara Penggunaan
+ 🔹 Basic
+
 ```bash
-[+] HTTP Flood (DDoS): Sends a large number of HTTP requests to the target to overwhelm the server.
-[+] Randomized User-Agent: Each request uses a different User-Agent to mimic traffic from various devices.
-[+] Dynamic Path Generation: Generates random paths for each request to make detection harder.
-[+] Randomized Query Parameters: Adds random query parameters to each request.
-[+] Multi-Threading: Uses ThreadPoolExecutor to send requests simultaneously with adjustable thread count.
-[+] Request Rate Control: Controls the number of requests per second to avoid being blocked by firewalls or security systems.
-[+] IP Spoofing: Uses the `X-Forwarded-For` header with random IPs to hide the original identity.
-[+] Traffic Monitoring: Displays real-time statistics like total requests and requests per second.
-[+] Error Handling: Handles errors such as timeouts, connection errors, and invalid URLs more effectively.
-[+] Custom Headers: Adds custom headers to make requests appear more natural.
-[+] Logging System: Logs all attack activities into a file (`http_flood.log`) for further analysis.
-[+] Colorful Output: Uses the `colorama` library to display colored output in the terminal.
-[+] Argument Parsing: Uses `argparse` to accept command-line inputs like target URLs, thread count, and request rate.
+python mdos.py https://target.com
 ```
+
 ## Contact
 
 [@mousexeploitsec](https://www.instagram.com/mousexeploitsec/)
